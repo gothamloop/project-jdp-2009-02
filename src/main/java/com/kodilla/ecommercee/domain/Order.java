@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -23,4 +24,12 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
+
+    @OneToMany(
+            targetEntity = Product.class,
+            mappedBy = "order",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private List<Product> productsList;
 }

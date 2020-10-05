@@ -14,9 +14,9 @@ import java.math.BigDecimal;
 @Entity(name = "PRODUCTS")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Column(name = "PRODUCT_ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "PRODUCT_ID", unique = true)
     private long id;
 
     @Column(name = "NAME")
@@ -28,11 +28,22 @@ public class Product {
     @Column(name = "PRICE")
     private BigDecimal price;
 
-    @ManyToOne
-    @JoinColumn(name = "FK_CART_ID")
+    @Column(name = "AMOUNT")
+    private int amount;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CART_ID")
     private Cart cart;
 
-    public Product(String name, String description, BigDecimal price) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "GROUP_ID")
+    private Group group;
+  
+  public Product(String name, String description, BigDecimal price) {
         this.name = name;
         this.description = description;
         this.price = price;
