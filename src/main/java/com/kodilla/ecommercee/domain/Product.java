@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 @Getter
 @Entity(name = "PRODUCTS")
 public class Product {
-
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,6 +42,14 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GROUP_ID")
     private Group group;
+  
+  public Product(String name, String description, BigDecimal price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 
-
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 }

@@ -31,7 +31,7 @@ public class User {
     private Date accountCreationDate;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CART_ID")
+    @JoinColumn(name = "FK_CART_ID")
     private Cart cart;
 
     @OneToMany(
@@ -40,5 +40,5 @@ public class User {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    List<Order> orders;
+    private List<Order> orders;
 }
