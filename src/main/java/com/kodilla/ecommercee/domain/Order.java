@@ -16,7 +16,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
-  
+    //private Long userId;
     private LocalDate creationDate;
   
     private boolean hasNotSent;
