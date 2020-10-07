@@ -9,17 +9,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-<<<<<<< HEAD
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Optional;
 
 @Transactional
-=======
-
-import java.util.Optional;
-
->>>>>>> b78208d30b5f0044c09ad55f0f84a3debb4dc633
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserDaoTestSuite {
@@ -38,7 +31,7 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
-<<<<<<< HEAD
+
         Optional<User> userDaoById = userDao.findById(id);
 
         Assert.assertTrue(userDaoById.isPresent());
@@ -47,21 +40,6 @@ public class UserDaoTestSuite {
         Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
         //CleanUp
         userDao.deleteById(id);
-=======
-
-        try {
-            Optional<User> userDaoById = userDao.findById(id);
-
-            Assert.assertTrue(userDaoById.isPresent());
-            Assert.assertEquals("Jan", userDaoById.get().getName());
-            Assert.assertEquals("Nowak", userDaoById.get().getSurname());
-            //Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
-        } catch (Exception e) {
-        } finally {
-            //CleanUp
-            userDao.deleteById(id);
-        }
->>>>>>> b78208d30b5f0044c09ad55f0f84a3debb4dc633
     }
 
     @Test
@@ -77,7 +55,6 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
-<<<<<<< HEAD
         Optional<User> userDaoById = userDao.findById(id);
 
         Assert.assertTrue(userDaoById.isPresent());
@@ -86,20 +63,6 @@ public class UserDaoTestSuite {
 
         //CleanUp
         userDao.deleteById(id);
-
-=======
-        try {
-            Optional<User> userDaoById = userDao.findById(id);
-            Assert.assertTrue(userDaoById.isPresent());
-            Assert.assertEquals(cart1.getId(), userDaoById.get().getCart().getId());
-            Assert.assertEquals(cart1.getProductsList().size(), userDaoById.get().getCart().getProductsList().size());
-        } catch (Exception e) {
-        } finally {
-            //CleanUp
-            userDao.deleteById(id);
-        }
->>>>>>> b78208d30b5f0044c09ad55f0f84a3debb4dc633
-
     }
 
     @Test
@@ -123,28 +86,14 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
-<<<<<<< HEAD
+
         Optional<User> userDaoById = userDao.findById(id);
         Assert.assertTrue(userDaoById.isPresent());
         Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
-        Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
+        Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(0).getCreated().getYear());
 
         //CleanUp
         userDao.deleteById(id);
-
-=======
-        try {
-            Optional<User> userDaoById = userDao.findById(id);
-            Assert.assertTrue(userDaoById.isPresent());
-
-            // Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
-            //Assert.assertEquals(2020,userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
-        } catch (Exception e) {
-        } finally {
-            //CleanUp
-            userDao.deleteById(id);
-        }
->>>>>>> b78208d30b5f0044c09ad55f0f84a3debb4dc633
 
     }
 }
