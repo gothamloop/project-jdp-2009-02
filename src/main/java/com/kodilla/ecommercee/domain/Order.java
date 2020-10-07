@@ -37,7 +37,6 @@ public class Order {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-
     private List<Product> productsList = new ArrayList<>();
 
     public Order(LocalDate creationDate, boolean hasNotSent, User user) {
@@ -48,5 +47,13 @@ public class Order {
 
     public void setProductsList(List<Product> productsList) {
         this.productsList = productsList;
+    }
+
+    public Order(int yearOfCreationDate, int monthOfCreationDate, int dayOfCreationDate) {
+        this.created = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
