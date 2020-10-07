@@ -49,6 +49,16 @@ public class Product {
         this.price = price;
     }
 
+    public Product(String name, String description, BigDecimal price, int amount, Cart cart, Order order, Group group) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.amount = amount;
+        this.cart = cart;
+        this.order = order;
+        this.group = group;
+    }
+
     public void setCart(Cart cart) {
         this.cart = cart;
     }
