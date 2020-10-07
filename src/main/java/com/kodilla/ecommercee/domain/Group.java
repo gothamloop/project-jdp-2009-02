@@ -11,12 +11,17 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "GROUP")
+@Entity(name = "THISGROUP")
 public class Group {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "NAMEGROUP")
     private String nameGroup;
+
+    @Column(name = "DESCRIPTION")
     private String description;
 
     @OneToMany(
