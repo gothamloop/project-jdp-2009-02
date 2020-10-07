@@ -18,8 +18,6 @@ public class OrderController {
     @Autowired
     private OrderMapper orderMapper;
 
-
-
     @RequestMapping(method = RequestMethod.GET, value = "getOrders")
    // public List<Order> getOrders(@RequestParam Long userId) { return new ArrayList<>();}
     public List<OrderDto> getOrders() {
@@ -33,9 +31,8 @@ public class OrderController {
     }
 
    @RequestMapping(method = RequestMethod.GET, value = "getOrder")
-    public OrderDto getOrder(@RequestParam Long OrderId) throws OrderNotFoundException {
+    public OrderDto getOrder(@RequestParam Long OrderId, @RequestParam Long orderId) throws OrderNotFoundException {
         return orderMapper.mapToOrderDto(service.getOrder(orderId).orElseThrow(OrderNotFoundException::new));
-
        // OrderDto testOrderDto = new OrderDto(1L, 1L, 2020, 9, 22);
        // return testOrderDto;
     }
@@ -48,9 +45,8 @@ public class OrderController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")
-    public void deleteOrder(@RequestParam Long OrderId) {
+    public void deleteOrder(@RequestParam Long OrderId, @RequestParam Long orderId) {
         //System.out.println("The order has been deleted");
         service.deleteOrder(orderId);
     }
-
 }

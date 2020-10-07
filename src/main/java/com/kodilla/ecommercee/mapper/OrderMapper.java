@@ -16,6 +16,12 @@ public class OrderMapper {
                 orderDto.getCreationDate(),
                 orderDto.isHasNotSent());
     }
+
+
+
+
+
+
     public OrderDto mapToOrderDto(final Order order) {
         return new OrderDto(
                 order.getOrderId(),
