@@ -3,6 +3,9 @@ package com.kodilla.ecommercee.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +22,7 @@ public class Order {
     private Long orderId;
 
     @Column(name = "CREATED")
-    private Date created;
+    private LocalDate created;
 
     @Column(name = "SHIPPED")
     private boolean shipped;
@@ -34,5 +37,5 @@ public class Order {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 }
