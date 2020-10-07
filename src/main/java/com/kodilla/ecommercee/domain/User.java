@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -24,11 +25,11 @@ public class User {
     @Column(name = "SURNAME")
     private String surname;
 
-    @Column(name = "E-MAIL")
+    @Column(name = "EMAIL")
     private String email;
 
     @Column(name = "CREATED")
-    private Date accountCreationDate;
+    private LocalDate accountCreationDate;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_CART_ID")
@@ -40,5 +41,15 @@ public class User {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Order> orders;
+    private List<Order> ordersList = new ArrayList<>();
+
+    public User(String name, String surname) {
+        this.name = name;
+        this.surname =surname;
+        this.accountCreationDate = LocalDate.now();
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 }

@@ -32,4 +32,12 @@ public class Order {
             fetch = FetchType.LAZY
     )
     private List<Product> productsList;
+
+    public Order(int yearOfCreationDate,int monthOfCreationDate,int dayOfCreationDate) {
+        this.creationDate = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
