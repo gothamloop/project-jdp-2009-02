@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -31,5 +32,11 @@ public class Order {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Product> productsList;
+    private List<Product> productsList = new ArrayList<>();
+
+    public Order(LocalDate creationDate, boolean hasNotSent, User user) {
+        this.creationDate = creationDate;
+        this.hasNotSent = hasNotSent;
+        this.user = user;
+    }
 }

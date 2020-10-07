@@ -32,15 +32,15 @@ public class Product {
     private int amount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CART_ID")
+    @JoinColumn(name = "FK_CART_ID")
     private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ORDER_ID")
+    @JoinColumn(name = "FK_ORDER_ID")
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "GROUP_ID")
+    @JoinColumn(name = "FK_GROUP_ID")
     private Group group;
   
   public Product(String name, String description, BigDecimal price) {
