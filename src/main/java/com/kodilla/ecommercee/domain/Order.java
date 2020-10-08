@@ -33,7 +33,7 @@ public class Order {
     )
     private List<Product> productsList;
 
-      public Order(Long orderId, User userId, LocalDate creationDate, boolean hasNotSent) {
+      public Order(Long orderId, Long userId, LocalDate creationDate, boolean hasNotSent) {
         this.orderId = orderId;
         this.user = user;
         this.creationDate = creationDate;
