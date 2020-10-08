@@ -73,9 +73,7 @@ public class ProductDaoTestSuite {
             Assert.assertEquals(null, orderId);
             Assert.assertEquals(null, groupId);
         } catch (Exception e) {
-        } finally {
-            //CleanUp
-            productDao.deleteById(id);
+
         }
     }
 }
