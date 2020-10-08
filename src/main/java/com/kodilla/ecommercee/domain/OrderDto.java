@@ -9,12 +9,6 @@ public class OrderDto {
     private boolean hasNotSent;
     private Object productsList;
 
-    //  public OrderDto(Long orderId, int userId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean b) {
-  //      this.orderId = orderId;
-  //      this.userId = userId;
-  //      this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
-  //      this.hasNotSent = true;
-  //  }
 
     public OrderDto(Long orderId, User userId, LocalDate creationDate, boolean hasNotSent ) {
         this.orderId = orderId;
