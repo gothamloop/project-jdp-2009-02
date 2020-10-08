@@ -62,4 +62,10 @@ public class Product {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
+    public void setOrder(Order order){
+      this.order = order;
+    }
+    public void setGroup(Group group){
+        this.group = group;
+    }
 }

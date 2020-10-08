@@ -53,6 +53,9 @@ public class ProductDaoTestSuite {
         Group group = new Group();
         Product product = new Product("Shirt", "Spring/Summer 2020", new BigDecimal("49.99"),
                 12, cart, order, group);
+        product.setCart(cart);
+        product.setOrder(order);
+        product.setGroup(group);
 
         //When
         productDao.save(product);
