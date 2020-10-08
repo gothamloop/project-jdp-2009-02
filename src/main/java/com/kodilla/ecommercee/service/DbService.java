@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.service;
 
+import com.kodilla.ecommercee.GenericEntity;
 import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.repository.GenericEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ public class DbService {
     @Autowired
     private GenericEntityRepository repository;
 
-    public List<Order> getAllOrders() {
+    public List<GenericEntity> getAllOrders() {
         return repository.findAll();
     }
 
@@ -25,13 +26,13 @@ public class DbService {
         return repository.save(order);
     }
 
-    public Optional<Order> getOrder(final Long id) {
+    public Optional<GenericEntity> getOrder(final Long id) {
         return repository.findById(id);
     }
 
     public void deleteOrder(final Long id) { repository.deleteById(id); }
 
-    public Optional<Order> getAllOrders(final Long id) {
+    public Optional<GenericEntity> getAllOrders(final Long id) {
         return repository.findById(id);
     }
 }
