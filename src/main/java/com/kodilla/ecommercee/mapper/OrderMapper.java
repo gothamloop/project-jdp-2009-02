@@ -20,15 +20,15 @@ public class OrderMapper {
    public OrderDto mapToOrderDto(final Order order) {
         return new OrderDto(
                 order.getOrderId(),
+                order.getUser(),
                 order.getCreationDate(),
-                order.isHasNotSent(),
-                order.getUser());
+                order.isHasNotSent());
     }
 
     public List<OrderDto> mapToOrderDtoList(final List<Order> orderList) {
         return orderList.stream()
                 //.map(t -> new OrderDto(t.getOrderId(), t.getUser(), t.getCreationDate(),t.isHasNotSent()))
-                .map(t -> new OrderDto(t.getOrderId(), t.getCreationDate(),t.isHasNotSent(),t.getUser() ))
+                .map(t -> new OrderDto(t.getOrderId(),t.getUser(), t.getCreationDate(),t.isHasNotSent()))
                 .collect(Collectors.toList());
     }
 }

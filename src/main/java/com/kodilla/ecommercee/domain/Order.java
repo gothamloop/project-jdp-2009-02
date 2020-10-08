@@ -33,13 +33,39 @@ public class Order {
     )
     private List<Product> productsList;
 
-    public Order(Long orderId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean hasNotSent, User user, List<Product> productsList) {
+      public Order(Long orderId, User userId, LocalDate creationDate, boolean hasNotSent) {
         this.orderId = orderId;
-        this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
-        this.hasNotSent = hasNotSent;
         this.user = user;
-        this.productsList = productsList;
+        this.creationDate = creationDate;
+        this.hasNotSent = hasNotSent;
     }
+
+
+
+
+//  public Order(Long orderId, User user, int yearOfOrder, int monthOfOrder, int dayOfOrder,  boolean hasNotSent) {
+    //      this.orderId = orderId;
+    //      this.user = user;
+    //      this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
+    //      this.hasNotSent = hasNotSent;
+    //   }
+
+    //  public Order(Long orderId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean hasNotSent, User user, List<Product> productsList) {
+   //     this.orderId = orderId;
+   ///     this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
+  //      this.hasNotSent = hasNotSent;
+  //      this.user = user;
+  //      this.productsList = productsList;
+  //  }
+
+   // public Order(Long orderId, User userId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean hasNotSent) {
+   //     this.orderId = orderId;
+   //     this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
+   //     this.hasNotSent = hasNotSent;
+   //     this.user = user;
+   //
+  //  }
+
 
 }
 
