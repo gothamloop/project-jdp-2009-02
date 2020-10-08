@@ -7,19 +7,21 @@ public class OrderDto {
     private User userId;
     private LocalDate creationDate;
     private boolean hasNotSent;
+    private Object productsList;
 
-  //  public OrderDto(Long orderId, int userId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean b) {
+    //  public OrderDto(Long orderId, int userId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean b) {
   //      this.orderId = orderId;
   //      this.userId = userId;
   //      this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
   //      this.hasNotSent = true;
   //  }
 
-    public OrderDto(Long orderId, LocalDate creationDate, boolean HasNotSent, User userId) {
+    public OrderDto(Long orderId, LocalDate creationDate, boolean hasNotSent, User userId) {
         this.orderId = orderId;
         this.userId = userId;
         this.creationDate = creationDate;
         this.hasNotSent = true;
+
     }
 
     public Long getOrderId() {
@@ -36,5 +38,9 @@ public class OrderDto {
 
     public boolean isHasNotSent() {
         return hasNotSent;
+    }
+
+    public Object getProductsList() {
+        return productsList;
     }
 }
