@@ -15,7 +15,7 @@ public class OrderDto {
   //      this.hasNotSent = true;
   //  }
 
-    public OrderDto(Long orderId, LocalDate creationDate, boolean hasNotSent, User userId) {
+    public OrderDto(Long orderId, LocalDate creationDate, boolean HasNotSent, User userId) {
         this.orderId = orderId;
         this.userId = userId;
         this.creationDate = creationDate;
