@@ -12,7 +12,7 @@ public class OrderMapper {
     public Order mapToOrder(final OrderDto orderDto) {
         return new Order(
                 orderDto.getOrderId(),
-                orderDto.getUser(),
+                orderDto.getUserId(),
                 orderDto.getCreationDate(),
                 orderDto.isHasNotSent());
     }
@@ -29,7 +29,7 @@ public class OrderMapper {
     public List<OrderDto> mapToOrderDtoList(final List<Order> orderList) {
         return orderList.stream()
                 //.map(t -> new OrderDto(t.getOrderId(), t.getUser(), t.getCreationDate(),t.isHasNotSent()))
-                .map(t -> new OrderDto(t.getOrderId(), t.getUserId(), t.getCreationDate(),t.isHasNotSent()))
+                .map(t -> new OrderDto(t.getOrderId(), t.getCreationDate(),t.isHasNotSent(),t.getUser() ))
                 .collect(Collectors.toList());
     }
 }
