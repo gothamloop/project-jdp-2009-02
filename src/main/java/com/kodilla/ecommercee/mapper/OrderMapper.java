@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.mapper;
 
+import com.kodilla.ecommercee.GenericEntity;
 import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.OrderDto;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,7 @@ public class OrderMapper {
                 orderDto.isHasNotSent());
     }
 
-   public OrderDto mapToOrderDto(final Order order) {
+   public OrderDto mapToOrderDto(final GenericEntity order) {
         return new OrderDto(
                 order.getOrderId(),
                 order.getUser(),

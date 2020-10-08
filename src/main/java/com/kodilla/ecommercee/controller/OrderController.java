@@ -41,7 +41,7 @@ public class OrderController {
     public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
         //OrderDto testOrderDto = new OrderDto(2L, 2L, 2020, 9, 23);
         //return testOrderDto;
-        return new OrderDto(2L,1, 20, 9,1,true);
+        return new OrderDto(2L,1, 2020, true);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")

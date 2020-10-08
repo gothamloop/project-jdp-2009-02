@@ -10,11 +10,12 @@ public class OrderDto {
     private Object productsList;
 
 
-    public OrderDto(Long orderId, User userId, LocalDate creationDate, boolean hasNotSent ) {
+    public OrderDto(Long orderId, User userId, LocalDate creationDate, boolean hasNotSent) {
         this.orderId = orderId;
         this.userId = userId;
         this.creationDate = creationDate;
         this.hasNotSent = true;
+
 
     }
 

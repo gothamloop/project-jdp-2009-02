@@ -21,6 +21,4 @@ public interface GenericEntityRepository extends JpaRepository<GenericEntity, Lo
     Optional<GenericEntity> findById(Long id);
 
 
-
-
 }

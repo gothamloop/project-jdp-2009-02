@@ -14,7 +14,7 @@ public class DbService {
     @Autowired
     private GenericEntityRepository repository;
 
-    public List<GenericEntity> getAllOrders() {
+    public List<Order> getAllOrders() {
         return repository.findAll();
     }
 
