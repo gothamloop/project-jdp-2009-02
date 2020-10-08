@@ -41,6 +41,5 @@ public class Order {
         this.productsList = productsList;
     }
 
-
 }
 
