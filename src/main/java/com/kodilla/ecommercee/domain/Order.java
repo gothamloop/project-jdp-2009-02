@@ -3,8 +3,10 @@ package com.kodilla.ecommercee.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.*;
@@ -16,12 +18,15 @@ import javax.persistence.*;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ORDER_ID", unique = true)
     private Long orderId;
-  
-    private LocalDate creationDate;
-  
-    private boolean hasNotSent;
-  
+
+    @Column(name = "CREATED")
+    private LocalDate created;
+
+    @Column(name = "SHIPPED")
+    private boolean shipped;
+
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
@@ -32,6 +37,7 @@ public class Order {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
+
     private List<Product> productsList = new ArrayList<>();
 
     public Order(LocalDate creationDate, boolean hasNotSent, User user) {
