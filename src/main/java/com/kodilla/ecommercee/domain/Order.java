@@ -16,11 +16,11 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
-    //private Long userId;
+
     private LocalDate creationDate;
-  
+
     private boolean hasNotSent;
-  
+
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
@@ -32,4 +32,13 @@ public class Order {
             fetch = FetchType.LAZY
     )
     private List<Product> productsList;
+
+    public Order(Long orderId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean hasNotSent, User user, List<Product> productsList) {
+        this.orderId = orderId;
+        this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
+        this.hasNotSent = hasNotSent;
+        this.user = user;
+        this.productsList = productsList;
+    }
 }
+

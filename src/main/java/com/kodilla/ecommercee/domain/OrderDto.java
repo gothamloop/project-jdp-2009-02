@@ -4,14 +4,21 @@ import java.time.LocalDate;
 
 public class OrderDto {
     private Long orderId;
-    private Long userId;
+    private User userId;
     private LocalDate creationDate;
     private boolean hasNotSent;
 
-    public OrderDto(Long orderId, Long userId, int yearOfOrder, int monthOfOrder, int dayOfOrder) {
+  //  public OrderDto(Long orderId, int userId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean b) {
+  //      this.orderId = orderId;
+  //      this.userId = userId;
+  //      this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
+  //      this.hasNotSent = true;
+  //  }
+
+    public OrderDto(Long orderId, LocalDate creationDate, boolean hasNotSent, User userId) {
         this.orderId = orderId;
         this.userId = userId;
-        this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
+        this.creationDate = creationDate;
         this.hasNotSent = true;
     }
 
@@ -19,7 +26,7 @@ public class OrderDto {
         return orderId;
     }
 
-    public Long getUserId() {
+    public User getUserId() {
         return userId;
     }
 
