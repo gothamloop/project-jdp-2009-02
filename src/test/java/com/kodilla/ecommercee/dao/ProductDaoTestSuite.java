@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class ProductDaoTestSuite {
     @Autowired
     ProductDao productDao;
@@ -41,21 +43,10 @@ public class ProductDaoTestSuite {
         cartDao.save(cart);
         long cartId = cart.getId();
 
-        long product1Id = product1.getId();
-        long product2Id = product2.getId();
-
         //When
         Optional<List<Product>> retrievedProducts = productDao.findByCart_Id(cartId);
 
         //Then
-        try {
-            Assert.assertEquals(2, retrievedProducts.get().size());
-
-        //CleanUp
-        } finally {
-            productDao.deleteById(product1Id);
-            productDao.deleteById(product2Id);
-            cartDao.deleteById(cartId);
-        }
+        Assert.assertEquals(2, retrievedProducts.get().size());
     }
 }

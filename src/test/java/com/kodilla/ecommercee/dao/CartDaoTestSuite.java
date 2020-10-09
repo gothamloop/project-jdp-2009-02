@@ -35,9 +35,6 @@ public class CartDaoTestSuite {
         Optional<Cart> cartDaoById = cartDao.findById(id);
         Assert.assertTrue(cartDaoById.isPresent());
         Assert.assertEquals(0, cartDaoById.get().getProductsList().size());
-
-        //CleanUp
-        cartDao.deleteById(id);
     }
 
     @Test
@@ -66,8 +63,5 @@ public class CartDaoTestSuite {
         Assert.assertEquals("Pineapple", cartDaoById.get().getProductsList().get(0).getName());
         Assert.assertEquals("Fruit LTD.", cartDaoById.get().getProductsList().get(0).getDescription());
         Assert.assertEquals(BigDecimal.valueOf(1.45), cartDaoById.get().getProductsList().get(1).getPrice());
-
-        //CleanUp
-        cartDao.deleteById(id);
     }
 }
