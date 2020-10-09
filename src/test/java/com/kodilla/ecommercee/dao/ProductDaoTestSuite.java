@@ -31,6 +31,7 @@ public class ProductDaoTestSuite {
         //When
         productDao.save(product1);
 
+<<<<<<< Updated upstream
         //Then
         long id = product1.getId();
         try {
@@ -43,6 +44,18 @@ public class ProductDaoTestSuite {
             //CleanUp
             productDao.deleteById(id);
         }
+=======
+        //Than
+        long id = product1.getId();
+        Optional<Product> readProduct = productDao.findById(id);
+        Assert.assertTrue(readProduct.isPresent());
+        Assert.assertEquals("Shirt", readProduct.get().getName());
+        Assert.assertEquals("Spring/Summer 2020", readProduct.get().getDescription());
+        Assert.assertEquals(BigDecimal.valueOf(49.99), readProduct.get().getPrice());
+
+        //CleanUp
+        productDao.deleteById(id);
+>>>>>>> Stashed changes
     }
 
     @Test
@@ -53,13 +66,17 @@ public class ProductDaoTestSuite {
         Group group = new Group();
         Product product = new Product("Shirt", "Spring/Summer 2020", new BigDecimal("49.99"),
                 12, cart, order, group);
+<<<<<<< Updated upstream
         product.setCart(cart);
         product.setOrder(order);
         product.setGroup(group);
+=======
+>>>>>>> Stashed changes
 
         //When
         productDao.save(product);
         long id = product.getId();
+<<<<<<< Updated upstream
 
         //Then
         System.out.println("PRODUCT ID: " + id);
@@ -75,5 +92,20 @@ public class ProductDaoTestSuite {
         } catch (Exception e) {
 
         }
+=======
+        Long cartId = cart.getId();
+        Long orderId = order.getOrderId();
+        Long groupId = group.getId();
+
+        //Then
+        Optional<Product> readProduct = productDao.findById(id);
+        Assert.assertTrue(readProduct.isPresent());
+        Assert.assertEquals(null, cartId);
+        Assert.assertEquals(null, orderId);
+        Assert.assertEquals(null, groupId);
+
+        //CleanUp
+        productDao.deleteById(id);
+>>>>>>> Stashed changes
     }
 }
