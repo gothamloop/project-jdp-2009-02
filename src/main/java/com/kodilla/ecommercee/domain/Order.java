@@ -41,8 +41,8 @@ public class Order {
     private List<Product> productsList = new ArrayList<>();
 
     public Order(LocalDate creationDate, boolean hasNotSent, User user) {
-        this.creationDate = creationDate;
-        this.hasNotSent = hasNotSent;
+        this.created = creationDate;
+        this.shipped = hasNotSent;
         this.user = user;
     }
 }
