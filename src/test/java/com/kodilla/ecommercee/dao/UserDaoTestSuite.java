@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -37,7 +38,7 @@ public class UserDaoTestSuite {
             Assert.assertTrue(userDaoById.isPresent());
             Assert.assertEquals("Jan", userDaoById.get().getName());
             Assert.assertEquals("Nowak", userDaoById.get().getSurname());
-            //Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
+            Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
         } catch (Exception e) {
         } finally {
             //CleanUp
@@ -95,9 +96,8 @@ public class UserDaoTestSuite {
         try {
             Optional<User> userDaoById = userDao.findById(id);
             Assert.assertTrue(userDaoById.isPresent());
-
-            // Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
-            //Assert.assertEquals(2020,userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
+            Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
+            Assert.assertEquals(2020,userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
         } catch (Exception e) {
         } finally {
             //CleanUp
