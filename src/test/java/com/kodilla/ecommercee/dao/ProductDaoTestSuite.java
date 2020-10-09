@@ -72,5 +72,6 @@ public class ProductDaoTestSuite {
 
         //CleanUp
         productDao.deleteById(id);
+
     }
 }
