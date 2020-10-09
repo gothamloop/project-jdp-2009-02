@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+@Transactional
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserDaoTestSuite {
@@ -31,19 +32,14 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
+        Optional<User> userDaoById = userDao.findById(id);
 
-        try {
-            Optional<User> userDaoById = userDao.findById(id);
-
-            Assert.assertTrue(userDaoById.isPresent());
-            Assert.assertEquals("Jan", userDaoById.get().getName());
-            Assert.assertEquals("Nowak", userDaoById.get().getSurname());
-            Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
-        } catch (Exception e) {
-        } finally {
-            //CleanUp
-            userDao.deleteById(id);
-        }
+        Assert.assertTrue(userDaoById.isPresent());
+        Assert.assertEquals("Jan", userDaoById.get().getName());
+        Assert.assertEquals("Nowak", userDaoById.get().getSurname());
+        Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
+        //CleanUp
+        userDao.deleteById(id);
     }
 
     @Test
@@ -59,16 +55,15 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
-        try {
-            Optional<User> userDaoById = userDao.findById(id);
-            Assert.assertTrue(userDaoById.isPresent());
-            Assert.assertEquals(cart1.getId(), userDaoById.get().getCart().getId());
-            Assert.assertEquals(cart1.getProductsList().size(), userDaoById.get().getCart().getProductsList().size());
-        } catch (Exception e) {
-        } finally {
-            //CleanUp
-            userDao.deleteById(id);
-        }
+        Optional<User> userDaoById = userDao.findById(id);
+
+        Assert.assertTrue(userDaoById.isPresent());
+        Assert.assertEquals(cart1.getId(), userDaoById.get().getCart().getId());
+        Assert.assertEquals(cart1.getProductsList().size(), userDaoById.get().getCart().getProductsList().size());
+
+        //CleanUp
+        userDao.deleteById(id);
+
 
     }
 
@@ -93,16 +88,14 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
-        try {
-            Optional<User> userDaoById = userDao.findById(id);
-            Assert.assertTrue(userDaoById.isPresent());
-            Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
-            Assert.assertEquals(2020,userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
-        } catch (Exception e) {
-        } finally {
-            //CleanUp
-            userDao.deleteById(id);
-        }
+        Optional<User> userDaoById = userDao.findById(id);
+        Assert.assertTrue(userDaoById.isPresent());
+        Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
+        Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
+
+        //CleanUp
+        userDao.deleteById(id);
+
 
     }
 }
