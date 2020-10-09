@@ -9,7 +9,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Optional;
 
 @Transactional
@@ -40,6 +42,7 @@ public class UserDaoTestSuite {
         Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
         //CleanUp
         userDao.deleteById(id);
+
     }
 
     @Test
@@ -55,6 +58,7 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
+
         Optional<User> userDaoById = userDao.findById(id);
 
         Assert.assertTrue(userDaoById.isPresent());
@@ -63,6 +67,7 @@ public class UserDaoTestSuite {
 
         //CleanUp
         userDao.deleteById(id);
+
     }
 
     @Test
@@ -94,6 +99,7 @@ public class UserDaoTestSuite {
 
         //CleanUp
         userDao.deleteById(id);
+
 
     }
 }
