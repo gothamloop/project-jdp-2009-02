@@ -22,14 +22,15 @@ public class OrderMapper {
         return new OrderDto(
                 order.getOrderId(),
                 order.getUser(),
-                order.getCreationDate(),
+                order.getCreationDate().getDayOfYear(),
+                order.getCreationDate().getDayOfMonth(),
+                order.getCreationDate().getDayOfWeek(),
                 order.isHasNotSent());
     }
 
     public List<OrderDto> mapToOrderDtoList(final List<Order> orderList) {
         return orderList.stream()
-                //.map(t -> new OrderDto(t.getOrderId(), t.getUser(), t.getCreationDate(),t.isHasNotSent()))
-                .map(t -> new OrderDto(t.getOrderId(),t.getUser(), t.getCreationDate(),t.isHasNotSent()))
+                .map(t -> new OrderDto(t.getOrderId(),t.getUser(), t.getCreationDate().getDayOfYear(),t.getCreationDate().getDayOfMonth(),t.getCreationDate().getDayOfWeek(),t.isHasNotSent()))
                 .collect(Collectors.toList());
     }
 }
