@@ -23,7 +23,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")
-    private Long user;
+    private User user;
 
     @OneToMany(
             targetEntity = Product.class,
@@ -33,7 +33,7 @@ public class Order {
     )
     private List<Product> productsList;
 
-      public Order(Long orderId, Long user, LocalDate creationDate, boolean hasNotSent) {
+      public Order(Long orderId, User user, LocalDate creationDate, boolean hasNotSent) {
         this.orderId = orderId;
         this.user = user;
         this.creationDate = creationDate;
