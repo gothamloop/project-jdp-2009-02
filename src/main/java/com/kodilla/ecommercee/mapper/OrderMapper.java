@@ -28,7 +28,7 @@ public class OrderMapper {
                 order.isHasNotSent());
     }
 
-    public List<OrderDto> mapToOrderDtoList(final List<Order> orderList) {
+    public List<OrderDto> mapToOrderDtoList(final List<GenericEntity> orderList) {
         return orderList.stream()
                 .map(t -> new OrderDto(t.getOrderId(),t.getUser(), t.getCreationDate().getDayOfYear(),t.getCreationDate().getDayOfMonth(),t.getCreationDate().getDayOfWeek(),t.isHasNotSent()))
                 .collect(Collectors.toList());

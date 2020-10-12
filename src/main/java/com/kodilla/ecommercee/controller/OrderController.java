@@ -2,6 +2,7 @@ package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.OrderDto;
+import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.mapper.OrderMapper;
 import com.kodilla.ecommercee.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class OrderController {
     public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
         //OrderDto testOrderDto = new OrderDto(2L, 2L, 2020, 9, 23);
         //return testOrderDto;
-        return new OrderDto(2L,1L, 20, 10,8,true);
+        return new OrderDto(2L,new User(), 20, 10,8,true);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")
