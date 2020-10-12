@@ -33,15 +33,12 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
-
         Optional<User> userDaoById = userDao.findById(id);
 
         Assert.assertTrue(userDaoById.isPresent());
         Assert.assertEquals("Jan", userDaoById.get().getName());
         Assert.assertEquals("Nowak", userDaoById.get().getSurname());
         Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
-        //CleanUp
-        userDao.deleteById(id);
 
     }
 
@@ -58,15 +55,11 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
-
         Optional<User> userDaoById = userDao.findById(id);
 
         Assert.assertTrue(userDaoById.isPresent());
         Assert.assertEquals(cart1.getId(), userDaoById.get().getCart().getId());
         Assert.assertEquals(cart1.getProductsList().size(), userDaoById.get().getCart().getProductsList().size());
-
-        //CleanUp
-        userDao.deleteById(id);
 
     }
 
@@ -91,15 +84,11 @@ public class UserDaoTestSuite {
 
         //Then
         long id = user.getUserId();
-
         Optional<User> userDaoById = userDao.findById(id);
+
         Assert.assertTrue(userDaoById.isPresent());
         Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
         Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(0).getCreated().getYear());
-
-        //CleanUp
-        userDao.deleteById(id);
-
 
     }
 }
