@@ -1,6 +1,8 @@
-package com.kodilla.ecommercee.domain;
+package com.kodilla.ecommercee.dao;
 
 import com.kodilla.ecommercee.dao.GroupDao;
+import com.kodilla.ecommercee.domain.Group;
+import com.kodilla.ecommercee.domain.Product;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
