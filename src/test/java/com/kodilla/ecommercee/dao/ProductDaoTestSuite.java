@@ -13,6 +13,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -22,6 +25,34 @@ public class ProductDaoTestSuite {
 
     @Autowired
     private ProductDao productDao;
+
+    @Autowired
+    CartDao cartDao;
+
+    @Test
+    public void testFindProductsList_ByCart_Id() {
+        //Given
+        Product product1 = new Product();
+        Product product2 = new Product();
+
+        List<Product> products = new ArrayList<>();
+        Collections.addAll(products, product1, product2);
+
+        Cart cart = new Cart();
+        cart.getProductsList().addAll(products);
+
+        product1.setCart(cart);
+        product2.setCart(cart);
+
+        cartDao.save(cart);
+        long cartId = cart.getId();
+
+        //When
+        Optional<List<Product>> retrievedProducts = productDao.findByCart_Id(cartId);
+
+        //Then
+        Assert.assertEquals(2, retrievedProducts.get().size());
+    }
 
     @Test
     public void testProductDaoSave(){
