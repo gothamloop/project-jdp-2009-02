@@ -32,5 +32,6 @@ public class Order {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Product> productsList = new ArrayList<>();
+
+    private List<Product> products = new ArrayList<>();
 }

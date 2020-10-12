@@ -38,9 +38,6 @@ public class ProductDaoTestSuite {
         Assert.assertEquals("Shirt", readProduct.get().getName());
         Assert.assertEquals("Spring/Summer 2020", readProduct.get().getDescription());
         Assert.assertEquals(BigDecimal.valueOf(49.99), readProduct.get().getPrice());
-
-        //CleanUp
-        productDao.deleteById(id);
     }
 
     @Test
@@ -69,9 +66,5 @@ public class ProductDaoTestSuite {
         Assert.assertEquals(null, cartId);
         Assert.assertEquals(null, orderId);
         Assert.assertEquals(null, groupId);
-
-        //CleanUp
-        productDao.deleteById(id);
-
     }
 }
