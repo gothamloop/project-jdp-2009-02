@@ -10,7 +10,7 @@ public class OrderDto {
     private boolean hasNotSent;
     private Object productsList;
 
-     public OrderDto(Long orderId, User userId, int yearOfOrder, int monthOfOrder, DayOfWeek dayOfOrder, boolean hasNotSent) {
+     public OrderDto(Long orderId, User userId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean hasNotSent) {
         this.orderId = orderId;
         this.userId = userId;
         this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
