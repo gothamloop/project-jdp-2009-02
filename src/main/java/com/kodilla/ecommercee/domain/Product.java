@@ -32,15 +32,15 @@ public class Product {
     private int amount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CART_ID")
+    @JoinColumn(name = "FK_CART_ID")
     private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ORDER_ID")
+    @JoinColumn(name = "FK_ORDER_ID")
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "GROUP_ID")
+    @JoinColumn(name = "FK_GROUP_ID")
     private Group group;
   
   public Product(String name, String description, BigDecimal price) {
@@ -49,7 +49,8 @@ public class Product {
         this.price = price;
     }
 
-    public Product(String name, String description, BigDecimal price, int amount, Cart cart, Order order, Group group) {
+
+  public Product(String name, String description, BigDecimal price, int amount, Cart cart, Order order, Group group) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -58,14 +59,23 @@ public class Product {
         this.order = order;
         this.group = group;
     }
+  
+  public Product(String name, String description, BigDecimal price, int amount) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.amount = amount;
+    }
 
-    public void setCart(Cart cart) {
+  public void setCart(Cart cart) {
         this.cart = cart;
     }
-    public void setOrder(Order order){
-      this.order = order;
+
+  public void setOrder(Order order) {
+        this.order = order;
     }
-    public void setGroup(Group group){
+
+  public void setGroup(Group group) {
         this.group = group;
     }
 }
