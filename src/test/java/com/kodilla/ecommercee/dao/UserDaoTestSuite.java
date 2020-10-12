@@ -37,6 +37,7 @@ public class UserDaoTestSuite {
         Assert.assertTrue(userDaoById.isPresent());
         Assert.assertEquals("Jan", userDaoById.get().getName());
         Assert.assertEquals("Nowak", userDaoById.get().getSurname());
+        Assert.assertEquals(0, userDaoById.get().getOrdersList().size());
 
     }
 
