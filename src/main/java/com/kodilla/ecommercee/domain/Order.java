@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 
 import javax.persistence.*;
@@ -37,7 +37,7 @@ public class Order {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Product> products = new ArrayList<>();
+   private List<Product> productsList = new ArrayList<>();
 
     public Order(int yearOfCreationDate, int monthOfCreationDate, int dayOfCreationDate) {
         this.created = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
@@ -46,4 +46,16 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
+   
+
+    public Order(LocalDate creationDate, boolean hasNotSent, User user) {
+        this.created = creationDate;
+        this.shipped = hasNotSent;
+        this.user = user;
+    }
+
+    public void setProductsList(List<Product> productsList) {
+        this.productsList = productsList;
+    }
+
 }

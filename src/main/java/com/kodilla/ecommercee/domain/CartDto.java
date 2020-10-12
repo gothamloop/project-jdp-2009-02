@@ -1,29 +1,15 @@
 package com.kodilla.ecommercee.domain;
 
-import com.kodilla.ecommercee.GenericEntity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CartDto {
     private Long id;
-    private Long ownerId;
-    private List<GenericEntity> productsList;
-
-    public CartDto(Long id, Long ownerId, List<GenericEntity> productsList) {
-        this.id = id;
-        this.ownerId = ownerId;
-        this.productsList = productsList;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Long getOwnerId() {
-        return ownerId;
-    }
-
-    public List<GenericEntity> getProductsList() {
-        return productsList;
-    }
+    private List<Long> productsIds;
 }
