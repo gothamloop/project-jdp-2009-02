@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,9 +25,9 @@ public class ProductDaoTestSuite {
 
     @Autowired
     private ProductDao productDao;
-
+     
     @Autowired
-    CartDao cartDao;
+    private CartDao cartDao;
 
     @Test
     public void testFindProductsList_ByCart_Id() {
