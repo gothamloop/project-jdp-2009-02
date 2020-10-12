@@ -49,7 +49,22 @@ public class Product {
         this.price = price;
     }
 
+    public Product(String name, String description, BigDecimal price, int amount) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.amount = amount;
+    }
+
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }

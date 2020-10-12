@@ -45,4 +45,8 @@ public class Order {
         this.shipped = hasNotSent;
         this.user = user;
     }
+
+    public void setProductsList(List<Product> productsList) {
+        this.productsList = productsList;
+    }
 }

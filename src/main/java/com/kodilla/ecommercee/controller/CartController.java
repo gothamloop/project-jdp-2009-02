@@ -68,7 +68,7 @@ public class CartController {
         User user = service.findUserById(userId).orElseThrow(UserNotFoundException::new);
 
         Order order = new Order(LocalDate.now(), false, user);
-        order.getProductsList().addAll(cart.getProductsList());
+        order.setProductsList(cart.getProductsList());
 
         return orderMapper.mapToOrderDto(service.saveOrder(order));
     }
