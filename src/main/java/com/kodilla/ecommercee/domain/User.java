@@ -41,5 +41,17 @@ public class User {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Order> orders = new ArrayList<>();
+    private List<Order> ordersList = new ArrayList<>();
+
+    public User(String name, String surname) {
+        this.name = name;
+        this.surname =surname;
+        this.accountCreationDate = LocalDate.now();
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
 }
+
