@@ -33,14 +33,18 @@ public class GenericEntity {
     }
 
     public Long getOrderId() {
+        return null;
     }
 
     public User getUser() {
+        return null;
     }
 
     public LocalDate getCreationDate() {
+        return null;
     }
 
     public boolean isHasNotSent() {
+        return false;
     }
 }
