@@ -8,12 +8,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class CartDaoTestSuite {
 
     @Autowired
@@ -29,12 +31,10 @@ public class CartDaoTestSuite {
 
         //Then
         long id = cart.getId();
+
         Optional<Cart> cartDaoById = cartDao.findById(id);
         Assert.assertTrue(cartDaoById.isPresent());
         Assert.assertEquals(0, cartDaoById.get().getProductsList().size());
-
-        //CleanUp
-        cartDao.deleteById(id);
     }
 
     @Test
@@ -56,14 +56,12 @@ public class CartDaoTestSuite {
 
         //Then
         long id = cart.getId();
+
         Optional<Cart> cartDaoById = cartDao.findById(id);
         Assert.assertTrue(cartDaoById.isPresent());
         Assert.assertEquals(2, cartDaoById.get().getProductsList().size());
         Assert.assertEquals("Pineapple", cartDaoById.get().getProductsList().get(0).getName());
         Assert.assertEquals("Fruit LTD.", cartDaoById.get().getProductsList().get(0).getDescription());
         Assert.assertEquals(BigDecimal.valueOf(1.45), cartDaoById.get().getProductsList().get(1).getPrice());
-
-        //CleanUp
-        cartDao.deleteById(id);
     }
 }

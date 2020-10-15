@@ -30,5 +30,14 @@ public class Group {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List productsList = new ArrayList<>();
+    private List<Product> productsList = new ArrayList<>();
+
+    public Group(String nameGroup, String description) {
+        this.nameGroup = nameGroup;
+        this.description = description;
+    }
+
+    public void setProductsList(List<Product> productsList) {
+        this.productsList = productsList;
+    }
 }
