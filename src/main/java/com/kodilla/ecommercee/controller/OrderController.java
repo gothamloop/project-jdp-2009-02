@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
+import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.OrderDto;
 import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.mapper.OrderMapper;
@@ -27,7 +28,7 @@ public class OrderController {
     @RequestMapping(method = RequestMethod.POST, value = "createOrder")
     //public void createOrder() { System.out.println("The order has been created"); }
     public void createOrder(@RequestBody OrderDto orderDto) {
-        service.saveOrder(orderMapper.mapToOrder(orderDto));
+        final Order order = service.saveOrder(orderMapper.mapToOrder(orderDto));
     }
 
    @RequestMapping(method = RequestMethod.GET, value = "getOrder")

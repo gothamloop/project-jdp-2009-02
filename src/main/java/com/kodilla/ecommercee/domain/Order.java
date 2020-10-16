@@ -16,18 +16,17 @@ import javax.persistence.*;
 @Getter
 @Entity(name = "ORDERS")
 public class Order {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ORDER_ID", unique = true)
     private Long orderId;
 
-
-    private LocalDate creationDate;
-
     private boolean hasNotSent;
 
     @Column(name = "CREATED")
-    private LocalDate created;
+    //private LocalDate created;
+    private LocalDate creationDate;
 
     @Column(name = "SHIPPED")
     private boolean shipped;
@@ -45,32 +44,32 @@ public class Order {
     )
     private List<Product> productsList;
 
-      public Order(Long orderId, User user, LocalDate creationDate, boolean hasNotSent) {
-        this.orderId = orderId;
-        this.user = user;
-        this.creationDate = creationDate;
-        this.hasNotSent = hasNotSent;
-
-   private List<Product> productsList = new ArrayList<>();
-
-    public Order(int yearOfCreationDate, int monthOfCreationDate, int dayOfCreationDate) {
-        this.created = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
-    }
-
     public void setUser(User user) {
         this.user = user;
     }
 
-    public Order(LocalDate creationDate, boolean hasNotSent, User user) {
-        this.created = creationDate;
-        this.shipped = hasNotSent;
+    public Order(Long orderId, User user, LocalDate creationDate, boolean hasNotSent) {
+        this.orderId = orderId;
         this.user = user;
+        this.creationDate = creationDate;
+        this.hasNotSent = hasNotSent;
     }
+   List<Product> productsList = new ArrayList<>();
 
+  //  public Order(int yearOfCreationDate, int monthOfCreationDate, int dayOfCreationDate) {
+       // this.created = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
+ //            this.creationDate = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
+ //   }
+
+ //       public Order(LocalDate creationDate, boolean hasNotSent, User user) {
+       // this.created = creationDate;
+//              this.creationDate =creationDate;
+ //             this.shipped = hasNotSent;
+//              this.user = user;
+ //   }
     public void setProductsList(List<Product> productsList) {
         this.productsList = productsList;
 
     }
-
 }
 
