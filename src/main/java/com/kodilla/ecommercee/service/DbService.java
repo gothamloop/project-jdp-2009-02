@@ -23,31 +23,6 @@ import java.util.Optional;
 @Service
 public class DbService {
     @Autowired
-
-    private GenericEntityRepository repository;
-
-    public List<GenericEntity> getAllOrders() {
-        return repository.findAll();
-    }
-
-    // public Order getOrderById(final Long id) {
-    //     return repository.findById(id).orElse(null);
-    //  }
-
-    public Order saveOrder(final Order order) {
-        return repository.save(order);
-    }
-
-    public Optional<GenericEntity> getOrder(final Long id) {
-        return repository.findById(id);
-    }
-
-    public void deleteOrder(final Long id) { repository.deleteById(id); }
-
-    public Optional<GenericEntity> getAllOrders(final Long id) {
-        return repository.findById(id);
-    }
-
     CartDao cartDao;
 
     @Autowired
@@ -58,6 +33,29 @@ public class DbService {
 
     @Autowired
     OrderDao orderDao;
+    private GenericEntityRepository repository;
+
+    public List<GenericEntity> getAllOrders() {
+        return repository.findAll();
+    }
+
+    // public Order getOrderById(final Long id) {
+    //     return repository.findById(id).orElse(null);
+    //  }
+
+    //public Order saveOrder(final Order order)        return repository.save(order);
+    }
+
+    //public Optional<GenericEntity> getOrder(final Long id) {
+       // return repository.findById(id);
+   // }
+
+    public void deleteOrder(final Long id) { repository.deleteById(id); }
+
+  //  public Optional<GenericEntity> getAllOrders(final Long id) {return repository.findById(id);
+    }
+
+
 
     public Cart saveCart(Cart cart) {
         return cartDao.save(cart);

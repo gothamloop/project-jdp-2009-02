@@ -61,12 +61,12 @@ public class Order {
  //            this.creationDate = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
  //   }
 
- //       public Order(LocalDate creationDate, boolean hasNotSent, User user) {
+        public Order(LocalDate creationDate, boolean hasNotSent, User user) {
        // this.created = creationDate;
-//              this.creationDate =creationDate;
- //             this.shipped = hasNotSent;
-//              this.user = user;
- //   }
+              this.creationDate =creationDate;
+              this.shipped = hasNotSent;
+              this.user = user; }
+
     public void setProductsList(List<Product> productsList) {
         this.productsList = productsList;
 
