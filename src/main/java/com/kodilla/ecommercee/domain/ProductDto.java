@@ -16,4 +16,18 @@ public class ProductDto {
     private String name;
     private String description;
     private BigDecimal price;
+    private int amount;
+
+    public ProductDto(String name, String description, BigDecimal price, int amount) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.amount = amount;
+    }
+
+    public ProductDto(String name, String description, BigDecimal price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 }

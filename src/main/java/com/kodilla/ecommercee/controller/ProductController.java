@@ -1,28 +1,39 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.ProductDto;
+import com.kodilla.ecommercee.mapper.ProductMapper;
+import com.kodilla.ecommercee.service.DbService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/v1/product")
 public class ProductController {
+    @Autowired
+    private DbService service;
+    @Autowired
+    private ProductMapper productMapper;
+//
+//    @RequestMapping(method = RequestMethod.GET, value = "getTasks")
+//    public List<TaskDto> getTasks() {
+//        return taskMapper.mapToTaskDtoList(service.getAllTasks());
+//    }
 
     @RequestMapping(method = RequestMethod.GET, value = "getProducts")
     public List<ProductDto> getProducts() {
-        List<ProductDto> listOfProducts = new ArrayList<>();
-        listOfProducts.add(new ProductDto(1L, "product1", "description1", new BigDecimal("12.3")));
-        listOfProducts.add(new ProductDto(2L, "product2", "description2", new BigDecimal("23.4")));
-        return listOfProducts;
+   //     return productMapper.mapToProductsDtos(service.getAllProducts());
+        return new ArrayList<>();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getProduct")
     public ProductDto getProduct(@RequestParam final Long id) throws ProductNotFoundException {
         if (id == 1) {
-            return new ProductDto(1L, "product1", "description1", new BigDecimal("12.1"));
+            return new ProductDto( "product1", "description1", new BigDecimal("12.1"));
         } else {
             throw new ProductNotFoundException();
         }

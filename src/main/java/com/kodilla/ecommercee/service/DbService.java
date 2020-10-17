@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.service;
 
+import com.kodilla.ecommercee.GenericEntity;
 import com.kodilla.ecommercee.dao.CartDao;
 import com.kodilla.ecommercee.dao.OrderDao;
 import com.kodilla.ecommercee.dao.ProductDao;
@@ -8,6 +9,7 @@ import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.User;
+import com.kodilla.ecommercee.repository.GenericEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,13 @@ public class DbService {
     @Autowired
     OrderDao orderDao;
 
+    @Autowired
+    private GenericEntityRepository repository;
+
+//    public List<GenericEntity> getAllProducts() {
+//        return repository.findAll();
+//    }
+
     public Cart saveCart(Cart cart) {
         return cartDao.save(cart);
     }
@@ -35,6 +44,12 @@ public class DbService {
     public Order saveOrder(Order order) {
         return orderDao.save(order);
     }
+
+    public Product saveProduct(Product product) {
+        return productDao.save(product);
+    }
+
+  // public Optional<List<Product>> getAllProducts(){ return productDao.findAll(getAllProducts());}
 
     public Optional<List<Product>> getProductsByCartId(long cartId) {
         return productDao.findByCart_Id(cartId);
