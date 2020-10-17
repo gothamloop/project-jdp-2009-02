@@ -19,7 +19,7 @@ public class OrderMapper {
                 orderDto.isHasNotSent());
     }
 
-   public OrderDto mapToOrderDto(final GenericEntity order) {
+   public OrderDto mapToOrderDto(final Order order) {
         return new OrderDto(
                 order.getOrderId(),
                 order.getUser(),

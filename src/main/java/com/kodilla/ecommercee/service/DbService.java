@@ -46,9 +46,9 @@ public class DbService {
     //public Order saveOrder(final Order order)        return repository.save(order);
     //}
 
-    //public Optional<GenericEntity> getOrder(final Long id) {
-       // return repository.findById(id);
-   // }
+    public Optional<GenericEntity> getOrder(final Long id) {
+        return repository.findById(id);
+    }
 
     public void deleteOrder(final Long id) { repository.deleteById(id); }
 
