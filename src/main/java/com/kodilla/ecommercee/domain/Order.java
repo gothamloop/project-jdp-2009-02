@@ -54,7 +54,8 @@ public class Order {
         this.creationDate = creationDate;
         this.hasNotSent = hasNotSent;
     }
-   List<Product> productsList = new ArrayList<>();
+  //
+    // List<Product> productsList = new ArrayList<>();
 
   //  public Order(int yearOfCreationDate, int monthOfCreationDate, int dayOfCreationDate) {
        // this.created = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
