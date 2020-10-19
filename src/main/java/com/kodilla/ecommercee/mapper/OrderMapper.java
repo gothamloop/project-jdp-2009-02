@@ -34,4 +34,5 @@ public class OrderMapper {
                 .map(t -> new OrderDto(t.getOrderId(),t.getUser(), t.getCreationDate().getDayOfYear(),t.getCreationDate().getDayOfMonth(),t.getCreationDate().getMonthValue(),t.isHasNotSent()))
                 .collect(Collectors.toList());
     }
+
 }

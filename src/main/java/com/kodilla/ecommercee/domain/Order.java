@@ -54,13 +54,12 @@ public class Order {
         this.creationDate = creationDate;
         this.hasNotSent = hasNotSent;
     }
-  //
-    // List<Product> productsList = new ArrayList<>();
+  // List<Product> productsList = new ArrayList<>();
 
-  //  public Order(int yearOfCreationDate, int monthOfCreationDate, int dayOfCreationDate) {
+    public Order(int yearOfCreationDate, int monthOfCreationDate, int dayOfCreationDate) {
        // this.created = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
- //            this.creationDate = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
- //   }
+             this.creationDate = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
+    }
 
         public Order(LocalDate creationDate, boolean hasNotSent, User user) {
        // this.created = creationDate;

@@ -10,7 +10,6 @@ import com.kodilla.ecommercee.dao.OrderDao;
 import com.kodilla.ecommercee.dao.ProductDao;
 import com.kodilla.ecommercee.dao.UserDao;
 import com.kodilla.ecommercee.domain.Cart;
-import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.User;
 
@@ -46,7 +45,7 @@ public class DbService {
     //public Order saveOrder(final Order order)        return repository.save(order);
     //}
 
-    public Optional<GenericEntity> getOrder(final Long id) {
+    public Object getOrder(final Long id) {
         return repository.findById(id);
     }
 
