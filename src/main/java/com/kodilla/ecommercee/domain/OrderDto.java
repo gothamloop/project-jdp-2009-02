@@ -7,20 +7,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDto {
     private Long orderId;
-    private User userId;
     private LocalDate creationDate;
     private boolean hasNotSent;
-    private Object productsList;
+    private List<Long> productsList;
 
      public OrderDto(Long orderId, User userId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean hasNotSent) {
         this.orderId = orderId;
-        this.userId = userId;
         this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
         this.hasNotSent = true;
      }
@@ -28,10 +27,6 @@ public class OrderDto {
 
     public Long getOrderId() {
         return orderId;
-    }
-
-    public User getUserId() {
-        return userId;
     }
 
     public LocalDate getCreationDate() {
@@ -42,7 +37,7 @@ public class OrderDto {
         return hasNotSent;
     }
 
-    public Object getProductsList() {
+    public List<Long> getProductsList() {
         return productsList;
     }
 }

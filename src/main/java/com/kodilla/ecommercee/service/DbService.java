@@ -1,7 +1,6 @@
 package com.kodilla.ecommercee.service;
 
 
-import com.kodilla.ecommercee.GenericEntity;
 import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.repository.GenericEntityRepository;
 
@@ -34,26 +33,16 @@ public class DbService {
     OrderDao orderDao;
     private GenericEntityRepository repository;
 
-    public List<GenericEntity> getAllOrders() {
+    public List<Order> getAllOrders() {
         return repository.findAll();
     }
 
-    // public Order getOrderById(final Long id) {
-    //     return repository.findById(id).orElse(null);
-    //  }
 
-    //public Order saveOrder(final Order order)        return repository.save(order);
-    //}
-
-    public Object getOrder(final Long id) {
+    public Optional<Order> getOrder(final Long id) {
         return repository.findById(id);
     }
 
     public void deleteOrder(final Long id) { repository.deleteById(id); }
-
-  //  public Optional<GenericEntity> getAllOrders(final Long id) {return repository.findById(id);}
-
-
 
     public Cart saveCart(Cart cart) {
         return cartDao.save(cart);

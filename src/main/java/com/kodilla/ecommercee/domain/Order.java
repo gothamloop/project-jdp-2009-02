@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 import java.util.List;
 
@@ -54,15 +53,13 @@ public class Order {
         this.creationDate = creationDate;
         this.hasNotSent = hasNotSent;
     }
-  // List<Product> productsList = new ArrayList<>();
 
-    public Order(int yearOfCreationDate, int monthOfCreationDate, int dayOfCreationDate) {
+    public Order(Long yearOfCreationDate, LocalDate monthOfCreationDate, boolean dayOfCreationDate) {
        // this.created = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
              this.creationDate = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
     }
 
         public Order(LocalDate creationDate, boolean hasNotSent, User user) {
-       // this.created = creationDate;
               this.creationDate =creationDate;
               this.shipped = hasNotSent;
               this.user = user; }

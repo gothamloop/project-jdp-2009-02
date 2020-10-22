@@ -14,7 +14,6 @@ public class OrderMapper {
     public Order mapToOrder(final OrderDto orderDto) {
         return new Order(
                 orderDto.getOrderId(),
-                orderDto.getUserId(),
                 orderDto.getCreationDate(),
                 orderDto.isHasNotSent());
     }
