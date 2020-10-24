@@ -33,10 +33,6 @@ public class DbService {
     @Autowired
     private GenericEntityRepository repository;
 
-//    public List<GenericEntity> getAllProducts() {
-//        return repository.findAll();
-//    }
-
     public Cart saveCart(Cart cart) {
         return cartDao.save(cart);
     }
@@ -44,12 +40,6 @@ public class DbService {
     public Order saveOrder(Order order) {
         return orderDao.save(order);
     }
-
-    public Product saveProduct(Product product) {
-        return productDao.save(product);
-    }
-
-  // public Optional<List<Product>> getAllProducts(){ return productDao.findAll(getAllProducts());}
 
     public Optional<List<Product>> getProductsByCartId(long cartId) {
         return productDao.findByCart_Id(cartId);
@@ -62,5 +52,21 @@ public class DbService {
     public Optional<Cart> findCartById(long cartId) {
         return cartDao.findById(cartId);
     }
+
+    public Product saveProduct(Product product) {
+        return productDao.save(product);
+    }
+
+    public List<Product> getAllProducts() {
+        return productDao.findAll();
+    }
+    public Optional<Product> getProduct (final Long id){
+        return productDao.findById(id);
+    }
+
+    public void deleteProduct(final Long id){
+        productDao.deleteById(id);
+    }
+
 
 }

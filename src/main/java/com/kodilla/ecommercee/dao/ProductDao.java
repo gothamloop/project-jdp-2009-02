@@ -11,5 +11,14 @@ import java.util.Optional;
 @Transactional
 @Repository
 public interface ProductDao extends CrudRepository<Product, Long> {
+
     Optional<List<Product>> findByCart_Id(long cartId);
+
+    @Override
+    List<Product> findAll();
+
+    @Override
+    Product save(Product product);
+
+
 }
