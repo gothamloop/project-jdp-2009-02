@@ -47,22 +47,18 @@ public class Order {
         this.user = user;
     }
 
-    public Order(Long orderId, User user, LocalDate creationDate, boolean hasNotSent) {
+    public Order(Long orderId, LocalDate creationDate, boolean hasNotSent) {
         this.orderId = orderId;
         this.user = user;
         this.creationDate = creationDate;
         this.hasNotSent = hasNotSent;
     }
 
-    public Order(Long yearOfCreationDate, LocalDate monthOfCreationDate, boolean dayOfCreationDate) {
-       // this.created = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
-             this.creationDate = LocalDate.of(yearOfCreationDate, monthOfCreationDate, dayOfCreationDate);
-    }
-
-        public Order(LocalDate creationDate, boolean hasNotSent, User user) {
-              this.creationDate =creationDate;
+    public Order(LocalDate creationDate, boolean hasNotSent, User user) {
+            this.user = user;
+            this.creationDate =creationDate;
               this.shipped = hasNotSent;
-              this.user = user; }
+        }
 
     public void setProductsList(List<Product> productsList) {
         this.productsList = productsList;
