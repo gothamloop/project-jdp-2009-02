@@ -66,9 +66,9 @@ public class UserDaoTestSuite {
     public void testUserDaoWithOrders() {
         //Given
         User user = new User("Jan", "Nowak");
-        Order order1 = new Order(2020, 5, 12);
-        Order order2 = new Order(2020, 6, 11);
-        Order order3 = new Order(2019, 9, 5);
+        Order order1 = new Order(5L,2020, true);
+        Order order2 = new Order(6L, 2020, false);
+        Order order3 = new Order(7L, 2020, true);
 
         user.getOrdersList().add(order1);
         user.getOrdersList().add(order2);

@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee;
 
+import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.repository.GenericEntityRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +25,7 @@ public class SpringBootJPAIntegrationTest {
         GenericEntity genericEntity = genericEntityRepository
                 .save(new GenericEntity("test"));
         Optional<GenericEntity> foundEntity = genericEntityRepository
-                .findById(genericEntity.getId());
+                .findById(GenericEntity.getId());
 
         assertTrue(foundEntity.isPresent());
         assertEquals(genericEntity.getValue(), foundEntity.get().getValue());

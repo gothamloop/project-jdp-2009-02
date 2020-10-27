@@ -10,9 +10,10 @@ import java.time.LocalDate;
 
 @Entity
 public class GenericEntity {
+    private static Long id;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     private String value;
 
     public GenericEntity() {
@@ -22,12 +23,7 @@ public class GenericEntity {
         return value;
     }
 
-    public Long getId() {
-
-        return id;
-    }
-
-    public GenericEntity(String value) {
+     public GenericEntity(String value) {
 
         this.value = value;
     }
@@ -46,5 +42,13 @@ public class GenericEntity {
 
     public boolean isHasNotSent() {
         return false;
+    }
+
+    public static Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

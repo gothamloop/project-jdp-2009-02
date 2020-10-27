@@ -16,6 +16,7 @@ import javax.persistence.*;
 @Entity(name = "ORDERS")
 public class Order {
 
+    private int createdDate;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ORDER_ID", unique = true)
@@ -43,21 +44,24 @@ public class Order {
     )
     private List<Product> productsList;
 
+    public Order(long l, int i, boolean b) {
+    }
+
     public void setUser(User user) {
         this.user = user;
     }
 
     public Order(Long orderId, LocalDate creationDate, boolean hasNotSent) {
         this.orderId = orderId;
-        this.user = user;
+        //this.user = user;
         this.creationDate = creationDate;
         this.hasNotSent = hasNotSent;
     }
 
     public Order(LocalDate creationDate, boolean hasNotSent, User user) {
-            this.user = user;
-            this.creationDate =creationDate;
+              this.creationDate =creationDate;
               this.shipped = hasNotSent;
+              this.user = user;
         }
 
     public void setProductsList(List<Product> productsList) {

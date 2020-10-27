@@ -38,8 +38,8 @@ public class DbService {
     }
 
 
-    public Optional<Order> getOrder(final Long id) {
-        return repository.findById(id);
+    public Order getOrder(final Long id) {
+        return (Order) repository.findById(id).get();
     }
 
     public void deleteOrder(final Long id) { repository.deleteById(id); }

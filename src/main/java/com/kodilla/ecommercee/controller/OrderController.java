@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
+import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.OrderDto;
 import com.kodilla.ecommercee.domain.User;
@@ -8,7 +9,7 @@ import com.kodilla.ecommercee.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
@@ -25,14 +26,18 @@ public class OrderController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createOrder")
-      public void createOrder(@RequestBody OrderDto orderDto) {
-        final Order order = service.saveOrder(orderMapper.mapToOrder(orderDto));
+      public OrderDto createOrder(@RequestParam Long cartId, @RequestParam Long userId) throws CartNotFoundException, UserNotFoundException {
+        Cart cart = service.findCartById(cartId).orElseThrow(CartNotFoundException::new);
+        User user = service.findUserById(userId).orElseThrow(UserNotFoundException::new);
+
+        Order order = new Order(LocalDate.now(), false, user);
+        order.setProductsList(cart.getProductsList());
+        return orderMapper.mapToOrderDto(service.saveOrder(order));
     }
 
    @RequestMapping(method = RequestMethod.GET, value = "getOrder")
     public OrderDto getOrder(@RequestParam Long orderId) throws OrderNotFoundException {
-
-       return orderMapper.mapToOrderDto((Order) service.getOrder(orderId));
+       return orderMapper.mapToOrderDto(service.getOrder(orderId));
           }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")
