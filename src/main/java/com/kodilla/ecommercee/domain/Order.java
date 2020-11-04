@@ -44,7 +44,7 @@ public class Order {
     )
     private List<Product> productsList;
 
-    public Order(long l, int i, boolean b) {
+    public Order(long l, int i, int dayOfMonth, int monthValue, boolean b) {
     }
 
     public void setUser(User user) {

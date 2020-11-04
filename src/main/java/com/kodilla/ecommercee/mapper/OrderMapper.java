@@ -13,7 +13,9 @@ public class OrderMapper {
     public Order mapToOrder(final OrderDto orderDto) {
         return new Order(
                 orderDto.getOrderId(),
-                orderDto.getCreationDate(),
+                orderDto.getCreationDate().getDayOfYear(),
+                orderDto.getCreationDate().getDayOfMonth(),
+                orderDto.getCreationDate().getMonthValue(),
                 orderDto.isHasNotSent());
     }
 

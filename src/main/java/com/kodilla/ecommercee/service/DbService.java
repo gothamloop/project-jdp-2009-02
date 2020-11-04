@@ -2,7 +2,7 @@ package com.kodilla.ecommercee.service;
 
 
 import com.kodilla.ecommercee.domain.Order;
-import com.kodilla.ecommercee.repository.GenericEntityRepository;
+import com.kodilla.ecommercee.repository.OrderRepository;
 
 import com.kodilla.ecommercee.dao.CartDao;
 import com.kodilla.ecommercee.dao.OrderDao;
@@ -31,7 +31,7 @@ public class DbService {
 
     @Autowired
     OrderDao orderDao;
-    private GenericEntityRepository repository;
+    private OrderRepository repository;
 
     public List<Order> getAllOrders() {
         return repository.findAll();

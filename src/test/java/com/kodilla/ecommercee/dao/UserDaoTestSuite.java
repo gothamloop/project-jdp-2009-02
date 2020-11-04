@@ -66,9 +66,9 @@ public class UserDaoTestSuite {
     public void testUserDaoWithOrders() {
         //Given
         User user = new User("Jan", "Nowak");
-        Order order1 = new Order(5L,2020, true);
-        Order order2 = new Order(6L, 2020, false);
-        Order order3 = new Order(7L, 2020, true);
+        Order order1 = new Order(5L,2020,1 , 1, true);
+        Order order2 = new Order(6L, 2020, 2, 2, false);
+        Order order3 = new Order(7L, 2020, 3, 3, true);
 
         user.getOrdersList().add(order1);
         user.getOrdersList().add(order2);
@@ -87,7 +87,7 @@ public class UserDaoTestSuite {
 
         Assert.assertTrue(userDaoById.isPresent());
         Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
-        Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
+        Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(1).getCreationDate().getYear());
 
     }
 }

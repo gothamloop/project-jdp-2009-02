@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface GenericEntityRepository<id> extends JpaRepository<Order, id> {
+public interface OrderRepository<Long> extends JpaRepository<Order, Long> {
 
     @Override
     List<Order> findAll();
@@ -17,7 +17,7 @@ public interface GenericEntityRepository<id> extends JpaRepository<Order, id> {
     @Override
     Order save(Order order);
 
-    Optional<GenericEntity> findById(Long id);
+    Optional<Order> findById(Long id);
 
 
     GenericEntity save(GenericEntity test);
