@@ -87,7 +87,7 @@ public class UserDaoTestSuite {
 
         Assert.assertTrue(userDaoById.isPresent());
         Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
-        Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(1).getCreationDate().getYear());
+        Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
 
     }
 }
