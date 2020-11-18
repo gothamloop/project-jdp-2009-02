@@ -44,10 +44,7 @@ public class Order {
     )
     private List<Product> productsList;
 
-    public Order(long l, int i, int dayOfMonth, int monthValue, boolean b) {
-    }
-
-       public void setUser(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
