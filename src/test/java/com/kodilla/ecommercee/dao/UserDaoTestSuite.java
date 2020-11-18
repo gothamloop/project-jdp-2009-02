@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
@@ -60,6 +62,11 @@ public class UserDaoTestSuite {
         Assert.assertEquals(cart1.getId(), userDaoById.get().getCart().getId());
         Assert.assertEquals(cart1.getProductsList().size(), userDaoById.get().getCart().getProductsList().size());
 
+      //  int x;
+      //  x = userDaoById.get().getCart().getProductsList().size();
+
+      //  System.out.println("x równy jest =" + x);
+
     }
 
     @Test
@@ -85,9 +92,13 @@ public class UserDaoTestSuite {
         long id = user.getUserId();
         Optional<User> userDaoById = userDao.findById(id);
 
-        Assert.assertTrue(userDaoById.isPresent());
-        Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
-        Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
+
+
+
+       Assert.assertTrue(userDaoById.isPresent());
+       Assert.assertEquals(3, userDaoById.get().getOrdersList().size());
+       Assert.assertEquals(2020, userDaoById.get().getOrdersList().get(0).getCreationDate().getYear());
+
 
     }
 }

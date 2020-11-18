@@ -47,19 +47,19 @@ public class Order {
     public Order(long l, int i, int dayOfMonth, int monthValue, boolean b) {
     }
 
-    public void setUser(User user) {
+       public void setUser(User user) {
         this.user = user;
     }
 
-    public Order(Long orderId, LocalDate creationDate, boolean hasNotSent) {
+    public Order(Long orderId, int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean hasNotSent) {
         this.orderId = orderId;
         //this.user = user;
-        this.creationDate = creationDate;
+        this.creationDate = LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
         this.hasNotSent = hasNotSent;
     }
 
-    public Order(LocalDate creationDate, boolean hasNotSent, User user) {
-              this.creationDate =creationDate;
+    public Order(int yearOfOrder, int monthOfOrder, int dayOfOrder, boolean hasNotSent, User user) {
+              this.creationDate =LocalDate.of(yearOfOrder, monthOfOrder, dayOfOrder);
               this.shipped = hasNotSent;
               this.user = user;
         }

@@ -14,8 +14,8 @@ public class OrderMapper {
         return new Order(
                 orderDto.getOrderId(),
                 orderDto.getCreationDate().getDayOfYear(),
-                orderDto.getCreationDate().getDayOfMonth(),
                 orderDto.getCreationDate().getMonthValue(),
+                orderDto.getCreationDate().getDayOfMonth(),
                 orderDto.isHasNotSent());
     }
 
